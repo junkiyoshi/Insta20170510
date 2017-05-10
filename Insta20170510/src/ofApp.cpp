@@ -84,6 +84,17 @@ void ofApp::setup(){
 		}
 	}
 
+	ofxBulletBox* box = new ofxBulletBox();
+	box->create(this->world.world, ofVec3f(0, ofGetHeight() * 80, 0), 1.0, size * len * 2, size * len * 2, size * len * 2);
+	box->setRestitution(1.0);
+	box->add();
+
+	this->boxes.push_back(box);
+
+	ofColor color;
+	color.setHsb(ofRandom(255), 255, 255);
+	this->boxes_colors.push_back(color);
+
 	this->light.setPosition(ofVec3f(512, 512, 512));
 
 }
